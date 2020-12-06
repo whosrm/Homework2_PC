@@ -54,15 +54,15 @@ numarul de caractere care s-au suprapus cu valorile respective din matricea bonu
 
 ### Task4
 
-* se citesc datele si se trec cuvintele in matrice ca la task-ul 1
-* incepem sa cautam pe fiecare linie pana gasim un cuvant, sau doar o litera
-* pentru fiecare litera gasita vedem daca putem scrie la dreapta sau sub ea
-* daca nu putem, trecem la urmatoarea litera sau pe urmatoarea linie
-* daca putem, calculam spatiul pe care il avem pana la urmatoarea litera
-sau pana la marginea placii
-* cautam in lista de cuvinte un cuvant care sa inceapa cu litera noastra si 
-sa nu depaseasca lungimea disponibila
+* cautarea se face incepand de la cuvinte
+* vrem sa punem primul cuvant care indeplineste criteriile:
+	* nu este deja folosit
+	* prima litera a acestuia este deja pe tabla
+	* nu iese de pe tabla sau se suprapune cu alte cuinte
 
-### Proble Task4
-
-* pentru anumite(mai toate) cazuri, gaseste alte cuvinte.
+* retinem cuvintele scrise de jucatori pentru a fi mai usor de vazut
+ce cuvinte au fost folosite
+* pentru fiecare fuvant de lista de cuvinte *words*:
+	* se verifica sa nu mai fi fost deja scris
+	* i se cauta prima litera pe tabla
+	* se verifica daca are loc
