@@ -195,7 +195,7 @@ int find_letter(char* row, char letter)
 	}
 	for(;i<SIZE;++i)
 		if(this_row[i] == letter)
-			return i;
+			return i++;
 	return -1;
 }
 
@@ -241,12 +241,12 @@ void task4(char table[SIZE][SIZE])
 		{
 			int pos = find_letter(table[j],words[i][0]);
 
-			if(pos > -1)
+			while(pos > -1)
 			{	// vedem daca avem loc
 				int k, ok = 1;
-				for(k = 0;words[i][k] && ok;++k)
+				for(k = 1;words[i][k] && ok;++k)
 				{
-					if(k > SIZE || table[j][pos +1+ k] != '.')
+					if(k + pos >= SIZE || table[j][pos + k] != '.')
 						ok = 0;
 				}
 				if(ok)
@@ -256,9 +256,9 @@ void task4(char table[SIZE][SIZE])
 				}
 				// cautam loc in jos
 				ok = 1;
-				for(k = 0; words[i][k] && ok; ++k)
+				for(k = 1; words[i][k] && ok; ++k)
 				{
-					if(k > SIZE || table[j +1+ k][pos] != '.')
+					if(k + i >= SIZE || table[j + k][pos] != '.')
 						ok = 0;
 				}
 				if(ok)
@@ -266,6 +266,7 @@ void task4(char table[SIZE][SIZE])
 					place_word(table, pos, j, 1,words[i]);
 					return;
 				}
+				pos = find_letter(NULL,words[i][0]);
 			}
 		}
 	}
